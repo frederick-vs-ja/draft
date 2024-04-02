@@ -974,8 +974,8 @@ constexpr pixel origin;                 // error: initializer missing
 \pnum
 The \keyword{constinit} specifier shall be applied only
 to a declaration of a variable with static or thread storage duration.
-If the specifier is applied to any declaration of a variable,
-it shall be applied to the initializing declaration.
+If the specifier is applied to any non-initializing declaration of a variable,
+it shall be also applied to the initializing declaration.
 No diagnostic is required if no \keyword{constinit} declaration
 is reachable at the point of the initializing declaration.
 
