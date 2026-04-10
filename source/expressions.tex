@@ -5464,7 +5464,7 @@ default argument\iref{dcl.fct.default}.
 An \grammarterm{await-expression} shall not appear in the initializer of
 a block variable with static or thread storage duration.
 An \grammarterm{await-expression} shall not be
-a potentially-evaluated subexpression
+a potentially evaluated subexpression
 of the predicate of a contract assertion\iref{basic.contract}.
 A context within a function where an \grammarterm{await-expression} can appear
 is called a \term{suspension context} of the function.
@@ -9387,13 +9387,13 @@ where $\textit{EVAL-PT}(P)$, for a point $P$,
 is a point $R$ determined as follows:
 \begin{itemize}
 \item
-If a potentially-evaluated subexpression\iref{intro.execution} of
+If a potentially evaluated subexpression\iref{intro.execution} of
 a default member initializer $I$ appears at $P$, and
 a (possibly aggregate) initialization during $V$ is using $I$,
 then $R$ is $\textit{EVAL-PT}(Q)$
 where $Q$ is the point at which that initialization appears.
 \item
-Otherwise, if a potentially-evaluated subexpression of
+Otherwise, if a potentially evaluated subexpression of
 a default argument\iref{dcl.fct.default} appears at $P$, and
 an invocation of a function\iref{expr.call} during $V$
 is using that default argument,
@@ -9482,7 +9482,7 @@ In some cases, constant evaluation is needed to determine whether such an expres
 or
 
 \item
-a potentially-evaluated subexpression\iref{intro.execution} of one of the above.
+a potentially evaluated subexpression\iref{intro.execution} of one of the above.
 \end{itemize}
 
 \indextext{function!needed for constant evaluation}%
