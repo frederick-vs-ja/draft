@@ -3015,10 +3015,17 @@ template<class T, @\exposconcept{tuple-like}@ Tuple>
 \begin{itemdescr}
 \pnum
 \mandates
-If \tcode{tuple_size_v<remove_reference_t<Tuple>>} is 1,
+\begin{itemize}
+\item
+Let \tcode{I} be a pack formed by the sequence of \tcode{size_t\{$i$\}}
+for every integer $0 \leq i < \tcode{tuple_size_v<remove_reference_t<Tuple>>}$.
+\tcode{is_constructible_v<T, decltype(get<I>(declval<Tuple>()))...>} is \tcode{true}, and
+\item
+if \tcode{tuple_size_v<remove_reference_t<Tuple>>} is 1,
 then
 \tcode{reference_constructs_from_temporary_v<T, decltype(get<0>(declval<Tuple>()))>}
 is \tcode{false}.
+\end{itemize}
 
 \pnum
 \effects
@@ -3026,7 +3033,6 @@ Given the exposition-only function template:
 \begin{codeblock}
 namespace std {
   template<class T, @\exposconcept{tuple-like}@ Tuple, size_t... I>
-    requires is_constructible_v<T, decltype(get<I>(declval<Tuple>()))...>
   constexpr T @\placeholdernc{make-from-tuple-impl}@(Tuple&& t, index_sequence<I...>) {   // \expos
     return T(get<I>(std::forward<Tuple>(t))...);
   }
